@@ -68,9 +68,9 @@ def custom_loss_function(data, y_pred):
    squared_difference = tf.square((y_true - y_pred))
    mse = tf.reduce_mean(squared_difference, axis=-1)
    """mse= keras.losses.MSE(y_true, y_pred)"""
-   y_prednonscaled=backnormC(y_pred.numpy())
-   Ca=backnormA(CA.numpy())
-   Cb=backnormB(CB.numpy())
+   y_prednonscaled=backnormC(y_pred)
+   Ca=backnormA(CA)
+   Cb=backnormB(CB)
    phyloss3=tf.square(deltaCC-0.2*Ca*Cb+EQ*y_prednonscaled)
    phyloss=tf.reduce_sum(phyloss3, axis=-1)
    """phyloss1=y_pred-1.6192
